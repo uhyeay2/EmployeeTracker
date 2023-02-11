@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTracker.Domain", "EmployeeTracker.Domain\EmployeeTracker.Domain.csproj", "{00BE8A4E-0AFA-47A3-9783-831A4B65E56A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeTracker.Domain", "EmployeeTracker.Domain\EmployeeTracker.Domain.csproj", "{00BE8A4E-0AFA-47A3-9783-831A4B65E56A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTracker.Data", "EmployeeTracker.Data\EmployeeTracker.Data.csproj", "{25AC10CC-AFA6-47D3-9E88-08470715F67B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeTracker.Data", "EmployeeTracker.Data\EmployeeTracker.Data.csproj", "{25AC10CC-AFA6-47D3-9E88-08470715F67B}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "EmployeeTracker.Database", "EmployeeTracker.Database\EmployeeTracker.Database.sqlproj", "{EA4F0984-09B7-4558-AA02-C7CB30793BB9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FD8FAFF8-A53A-424D-A714-5194A7303DC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTracker.Data.Tests", "EmployeeTracker.Data.Tests\EmployeeTracker.Data.Tests.csproj", "{9161A9B1-8236-450A-A543-392D1CA14950}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeTracker.Data.Tests", "EmployeeTracker.Data.Tests\EmployeeTracker.Data.Tests.csproj", "{9161A9B1-8236-450A-A543-392D1CA14950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeTracker.Mediator", "EmployeeTracker.Mediator\EmployeeTracker.Mediator.csproj", "{644335E7-3745-497A-A28F-EC6B9BB9B2F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{9161A9B1-8236-450A-A543-392D1CA14950}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9161A9B1-8236-450A-A543-392D1CA14950}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9161A9B1-8236-450A-A543-392D1CA14950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{644335E7-3745-497A-A28F-EC6B9BB9B2F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{644335E7-3745-497A-A28F-EC6B9BB9B2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{644335E7-3745-497A-A28F-EC6B9BB9B2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{644335E7-3745-497A-A28F-EC6B9BB9B2F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
