@@ -11,6 +11,6 @@
 
         public object? GenerateParameters() => new { Code };
 
-        public string GenerateSql() => "SELECT * FROM Department WHERE Code = @Code";
+        public string GenerateSql() => Select.FromTable(Tables.Department, "Code = @Code");
     }
 }

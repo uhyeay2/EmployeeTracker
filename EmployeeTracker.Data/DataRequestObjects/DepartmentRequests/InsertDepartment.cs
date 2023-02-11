@@ -14,6 +14,6 @@
 
         public object? GenerateParameters() => new { Code, Name };
 
-        public string GenerateSql() => "INSERT INTO Department (Code, Name) VALUES (@Code, @Name)";
+        public string GenerateSql() => Insert.IntoTable(Tables.Department, "Code", "Name");
     }
 }
