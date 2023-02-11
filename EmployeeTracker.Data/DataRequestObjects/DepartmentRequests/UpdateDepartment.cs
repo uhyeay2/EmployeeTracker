@@ -13,6 +13,6 @@ namespace EmployeeTracker.Data.DataRequestObjects.DepartmentRequests
 
         public object? GenerateParameters() => new { Department.Code, Department.Name };
 
-        public string GenerateSql() => $"UPDATE {Tables.Department} SET Name = COALESCE(@Name, Name) WHERE Code = @Code";
+        public string GenerateSql() => Update.CoalesceTable(Tables.Department, "Code = @Code", "Name");
     }
 }

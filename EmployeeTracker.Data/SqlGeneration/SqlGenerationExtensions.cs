@@ -7,5 +7,11 @@
 
         internal static string AggregateWithCommasForParameters(this IEnumerable<string> strings) =>
             strings?.Select(x => $"@{x}").AggregateWithCommas() ?? string.Empty;
+
+        internal static string AggregateToSetValues(this IEnumerable<string> values) =>
+            values?.Select(x => $"{x} = @{x}").AggregateWithCommas() ?? string.Empty;
+
+        internal static string AggregateToCoalesceValues(this IEnumerable<string> values) =>
+            values?.Select(x => $"{x} = COALESCE ( @{x} , {x} )").AggregateWithCommas() ?? string.Empty;
     }
 }
