@@ -2,8 +2,8 @@
 {
     internal static class Select
     {
-        internal static string FromTable(string table) => $"SELECT * FROM {table}";
+        internal static string AllFromTable(string table) => $"SELECT * FROM {table}";
 
-        internal static string FromTable(string table, string where) => $"SELECT * FROM {table} WHERE {where}";
+        internal static string AllFromTable(string table, string where) => $"SELECT * FROM {table} WHERE {where}";
     }
 }
