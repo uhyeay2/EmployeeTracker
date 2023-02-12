@@ -14,7 +14,7 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
         [Fact]
         public async Task InsertDepartment_Given_DepartmentAlreadyExists_Should_ReturnAlreadyExistsResponse()
         {
-            SetupFetch<DepartmentCodeExists, bool>(true);
+            SetupMockFetch<DepartmentCodeExists, bool>(true);
 
             var response = await _handler.Handle(_request, default);
 
@@ -24,9 +24,9 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
         [Fact]
         public async Task InsertDepartment_Given_DepartmentDoesNotExist_AndExecutionReturnsOne_Should_ReturnSuccessResponse()
         {
-            SetupFetch<DepartmentCodeExists, bool>(false);
+            SetupMockFetch<DepartmentCodeExists, bool>(false);
 
-            SetupExecute<InsertDepartment>(1);
+            SetupMockExecute<InsertDepartment>(1);
 
             var response = await _handler.Handle(_request, default);
 
@@ -36,7 +36,7 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
         [Fact]
         public async Task InsertDepartment_Given_DepartmentDoesNotExist_AndExecutionDoesNotReturnOne_Should_ReturnUnExpectedResponse()
         {
-            SetupFetch<DepartmentCodeExists, bool>(false);
+            SetupMockFetch<DepartmentCodeExists, bool>(false);
 
             var response = await _handler.Handle(_request, default);
 

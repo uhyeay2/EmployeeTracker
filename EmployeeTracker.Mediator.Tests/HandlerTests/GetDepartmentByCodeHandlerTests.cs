@@ -15,7 +15,7 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
         [Fact]
         public async Task GetDepartmentByCode_Given_NoDepartmentExists_Should_ReturnNotFoundResponse()
         {
-            SetupFetch<GetDepartmentByCode, DepartmentDTO>(null!);
+            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(null!);
 
             var response = await _handler.Handle(_request, default);
                 
@@ -25,7 +25,7 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
         [Fact]
         public async Task GetDepartmentByCode_Given_DepartmentExists_Should_ReturnSuccessResponse()
         {
-            SetupFetch<GetDepartmentByCode, DepartmentDTO>(new DepartmentDTO());
+            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(new DepartmentDTO());
 
             var request = await _handler.Handle(_request, default);
 
