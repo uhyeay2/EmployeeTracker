@@ -1,15 +1,17 @@
 ﻿using EmployeeTracker.Data.DataRequestObjects.DepartmentRequests;
-using EmployeeTracker.Data.Interfaces;
-using EmployeeTracker.Domain.Extensions;
-using EmployeeTracker.Domain.Models;
-using EmployeeTracker.Mediator.Abstractions.BaseHandlers;
-using EmployeeTracker.Mediator.Abstractions.BaseRequests;
-using EmployeeTracker.Mediator.Abstractions.BaseResponses;
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
     public class InsertDepartmentRequest : BaseValidatableRequest<DataExecutionResponse>
     {
+        public InsertDepartmentRequest() { }
+
+        public InsertDepartmentRequest(string code, string name)
+        {
+            Code = code;
+            Name = name;
+        }
+
         public string Code { get; set; } = null!;
 
         public string Name { get; set; } = null!;
@@ -30,6 +32,11 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 
         public override async Task<DataExecutionResponse> Handle(InsertDepartmentRequest request, CancellationToken cancellationToken)
         {
+            if (await DataAccess.FetchAsync<bool>(new DepartmentCodeExists(request.Code)))
+            {
+                return DataExecutionResponse.AlreadyExists();
+            }
+
             var result = await DataAccess.ExecuteAsync(new InsertDepartment(request.Code, request.Name));
 
             if (result == 1)
