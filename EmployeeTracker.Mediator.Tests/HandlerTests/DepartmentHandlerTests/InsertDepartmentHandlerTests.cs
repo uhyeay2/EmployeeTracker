@@ -1,7 +1,7 @@
 ﻿using EmployeeTracker.Data.DataRequestObjects.DepartmentRequests;
 using EmployeeTracker.Mediator.Handlers.DepartmentHandlers;
 
-namespace EmployeeTracker.Mediator.Tests.HandlerTests
+namespace EmployeeTracker.Mediator.Tests.HandlerTests.DepartmentHandlerTests
 {
     public class InsertDepartmentHandlerTests : DataHandlerTest
     {

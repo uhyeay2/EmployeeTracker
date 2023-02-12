@@ -2,7 +2,7 @@
 using EmployeeTracker.Data.DataTransferObjects;
 using EmployeeTracker.Mediator.Handlers.DepartmentHandlers;
 
-namespace EmployeeTracker.Mediator.Tests.HandlerTests
+namespace EmployeeTracker.Mediator.Tests.HandlerTests.DepartmentHandlerTests
 {
     public class GetAllDepartmentsHandlerTests : DataHandlerTest
     {

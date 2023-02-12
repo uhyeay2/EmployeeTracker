@@ -2,9 +2,9 @@
 using EmployeeTracker.Data.DataTransferObjects;
 using EmployeeTracker.Mediator.Handlers.DepartmentHandlers;
 
-namespace EmployeeTracker.Mediator.Tests.HandlerTests
+namespace EmployeeTracker.Mediator.Tests.HandlerTests.DepartmentHandlerTests
 {
-    public class GetDepartmentByCodeHandlerTests : DataHandlerTest 
+    public class GetDepartmentByCodeHandlerTests : DataHandlerTest
     {
         public GetDepartmentByCodeHandlerTests() => _handler = new(MockDataAccess.Object);
 
