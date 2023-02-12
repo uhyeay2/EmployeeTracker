@@ -2,7 +2,7 @@
 
 namespace EmployeeTracker.Mediator.Abstractions.BaseRequests
 {
-    public class BaseRequest<TResponse> : IRequest<TResponse>
+    public class BaseRequest<TResponse> : IRequest<TResponse> where TResponse : BaseResponse
     {
     }
 }

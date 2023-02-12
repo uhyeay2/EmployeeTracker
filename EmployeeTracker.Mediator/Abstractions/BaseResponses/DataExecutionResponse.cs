@@ -11,5 +11,7 @@ namespace EmployeeTracker.Mediator.Abstractions.BaseResponses
         public static DataExecutionResponse Success(int rowsAffected) => new(StatusCodes.Success, rowsAffected);
 
         public static DataExecutionResponse UnExpected(int rowsAffected) => new(StatusCodes.UnExpected, rowsAffected);
+
+        public static DataExecutionResponse AlreadyExists() => new(StatusCodes.AlreadyExists, 0);
     }
 }
