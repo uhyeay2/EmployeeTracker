@@ -10,6 +10,8 @@ namespace EmployeeTracker.Mediator.Constants
 
         public const int Conflict = (int)HttpStatusCode.Conflict;
 
+        public const int AlreadyExists = (int)HttpStatusCode.Forbidden;
+
         public const int BadRequest = (int)HttpStatusCode.BadRequest;
 
         public const int UnExpected = (int)HttpStatusCode.InternalServerError;
