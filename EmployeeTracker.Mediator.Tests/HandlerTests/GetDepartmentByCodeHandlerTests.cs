@@ -10,26 +10,43 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests
 
         private readonly GetDepartmentByCodeHandler _handler;
 
-        private static readonly GetDepartmentByCodeRequest _request = new("Code");
+        private static readonly GetDepartmentByCodeRequest _request = new(_expectedCode);
+
+        private static readonly DepartmentDTO _testDTO = new(id: 1, _expectedCode, _expectedName);
+
+        private const string _expectedCode = "Code";
+        private const string _expectedName = "Name";
 
         [Fact]
         public async Task GetDepartmentByCode_Given_NoDepartmentExists_Should_ReturnNotFoundResponse()
         {
             SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(null!);
 
-            var response = await _handler.Handle(_request, default);
-                
-            response.StatusCode.ShouldBe(StatusCodes.NotFound);
+            (await _handler.Handle(_request, default)).StatusCode.ShouldBe(StatusCodes.NotFound);
         }
 
         [Fact]
         public async Task GetDepartmentByCode_Given_DepartmentExists_Should_ReturnSuccessResponse()
         {
-            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(new DepartmentDTO());
+            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(_testDTO);
 
-            var request = await _handler.Handle(_request, default);
+            (await _handler.Handle(_request, default)).StatusCode.ShouldBe(StatusCodes.Success);
+        }
 
-            request.StatusCode.ShouldBe(StatusCodes.Success);
+        [Fact]
+        public async Task GetDepartmentByCode_Given_DepartmentExists_Should_ReturnCorrectName()
+        {
+            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(_testDTO);
+
+            (await _handler.Handle(_request, default))?.Content?.Name.ShouldBe(_expectedName);
+        }
+
+        [Fact]
+        public async Task GetDepartmentByCode_Given_DepartmentExists_Should_ReturnCorrectCode()
+        {
+            SetupMockFetch<GetDepartmentByCode, DepartmentDTO>(_testDTO);
+
+            (await _handler.Handle(_request, default))?.Content?.Code.ShouldBe(_expectedCode);
         }
     }
 }
