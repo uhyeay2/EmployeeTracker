@@ -3,8 +3,9 @@
 ASP.Net Core Application for tracking Employee Metrics such as Attendance/Performance
 
 ## Contents
-* [Overview](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#overview)
+* [Overview](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#overview)   
 * [Architecture](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#architecture)
+  * [EmployeeTracker.Domain](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdomain)
 * [Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#Testing)
 * [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#technologieshighlights)
 
