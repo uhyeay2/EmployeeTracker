@@ -19,8 +19,8 @@ namespace EmployeeTracker.Mediator.Tests.TestHelpers
                            .FetchListAsync<TMockResponse>(It.IsAny<TRequest>()))
                            .Returns(Task.FromResult(mockResponse));
 
-        protected void SetupMockExecute<TRequest>(int MockResponse) where TRequest : IDataRequest =>
+        protected void SetupMockExecute<TRequest>(int mockResponse) where TRequest : IDataRequest =>
              MockDataAccess.Setup(_ => _
                            .ExecuteAsync(It.IsAny<TRequest>()))
-                           .Returns(Task.FromResult(MockResponse));    }
+                           .Returns(Task.FromResult(mockResponse));    }
 }
