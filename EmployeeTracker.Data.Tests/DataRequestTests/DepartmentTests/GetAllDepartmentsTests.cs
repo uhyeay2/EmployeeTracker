@@ -6,12 +6,12 @@ namespace EmployeeTracker.Data.Tests.DataRequestTests.DepartmentTests
     {
         private static readonly IEnumerable<DepartmentDTO> _departments = new List<DepartmentDTO>()
         {
-            new DepartmentDTO() { Id = 1, Code = "Code1", Name = "Name1"},
-            new DepartmentDTO() { Id = 2, Code = "Code2", Name = "Name2"},
-            new DepartmentDTO() { Id = 3, Code = "Code3", Name = "Name3"},
-            new DepartmentDTO() { Id = 4, Code = "Code4", Name = "Name4"},
-            new DepartmentDTO() { Id = 5, Code = "Code5", Name = "Name5"},
-            new DepartmentDTO() { Id = 6, Code = "Code6", Name = "Name6"},
+            new DepartmentDTO(1, "Code1", "Name1"),
+            new DepartmentDTO(2, "Code2", "Name2"),
+            new DepartmentDTO(3, "Code3", "Name3"),
+            new DepartmentDTO(4, "Code4", "Name4"),
+            new DepartmentDTO(5, "Code5", "Name5"),
+            new DepartmentDTO(6, "Code6", "Name6"),
         };
 
         private static readonly GetAllDepartments _request = new();
