@@ -34,17 +34,17 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
         {
             if (await DataAccess.FetchAsync<bool>(new DepartmentCodeExists(request.Code)))
             {
-                return DataExecutionResponse.AlreadyExists();
+                return DataExecutionResponse.AlreadyExists($"Department already exists with Code: {request.Code}");
             }
 
-            var result = await DataAccess.ExecuteAsync(new InsertDepartment(request.Code, request.Name));
+            var rowsAffected = await DataAccess.ExecuteAsync(new InsertDepartment(request.Code, request.Name));
 
-            if (result == 1)
+            if (rowsAffected == 1)
             {
-                return DataExecutionResponse.Success(result);
+                return DataExecutionResponse.Success(rowsAffected);
             }
 
-            return DataExecutionResponse.UnExpected(result);
+            return DataExecutionResponse.UnExpected(rowsAffected, $"Expected 1 Row Inserted - Actual Rows Affected: {rowsAffected}");
         }
     }
 }
