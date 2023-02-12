@@ -6,7 +6,7 @@ ASP.Net Core Application for tracking Employee Metrics such as Attendance/Perfor
 * [Overview](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#overview)
 * [Architecture](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#architecture)
 * [Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#Testing)
-* [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#Technologies/Highlights)
+* [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#technologieshighlights)
 
 ## Overview
 
