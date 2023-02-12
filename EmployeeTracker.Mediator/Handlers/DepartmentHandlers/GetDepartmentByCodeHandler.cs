@@ -32,9 +32,7 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
                 return Response.NotFound<Department>();
             }
 
-            var response = new Department(department.Code, department.Name);
-
-            return Response.Success(response);
+            return Response.Success(new Department(department.Code, department.Name));
         }
     }
 }
