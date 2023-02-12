@@ -3,10 +3,15 @@
 ASP.Net Core Application for tracking Employee Metrics such as Attendance/Performance
 
 ## Contents
-* [Overview](https://github.com/uhyeay2/EmployeeTracker/edit/main/README.md#overview)
-* [Architecture](https://github.com/uhyeay2/EmployeeTracker/edit/main/README.md#architecture)
-* [Testing](https://github.com/uhyeay2/EmployeeTracker/edit/main/README.md#Testing)
-* [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/edit/main/README.md#Testing)
+* [Overview](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#overview)   
+* [Architecture](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#architecture)
+  * [EmployeeTracker.Domain](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdomain)
+  * [EmployeeTracker.Database](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdatabase)
+  * [EmployeeTracker.Data](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdata)
+  * [EmployeeTracker.Mediator](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackermediator)
+  * [EmployeeTracker.Api](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerapi)
+* [Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#Testing)
+* [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#technologieshighlights)
 
 ## Overview
 
@@ -24,23 +29,23 @@ Architecture is something that I've always found to be an important part of an a
 
 As Part of using Clean Architecture, the Domain Project resides at the center of my application. However I also have several other Layers/Ports that are used as well. Here's a breakdown of the Projects in this application and their responsibilities.
 
-- EmployeeTracker.Domain
+- [EmployeeTracker.Domain](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdomain)
   - This Class Library is the core of the application, the Domain is responsible for housing Domain objects/logic.
   - Some examples of Domain objects found here are the Employee and Department classes.
   - Domain objects do not expose details that should not be given to the user such as Table Id's
-- EmployeeTracker.Database
+- [EmployeeTracker.Database](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdatabase)
   - This SqlServer project is used to track the history of and deploy changes to the Sql Server Database.
   - Changes for the Database are made here, then published to the Sql Sever Database through Visual Studios.
-- EmployeeTracker.Data
+- [EmployeeTracker.Data](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerdata)
   - This Class Library is responsible for accessing the Database via the Dapper ORM.
   - All DataRequests are handled via a class called DataAccess
   - Since Queries/Commands are RequestObjects they are easily reusable without repeated SQL everywhere!
   - Sql Generation included for simple SQL requests
-- EmployeeTracker.Mediator
+- [EmployeeTracker.Mediator](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackermediator)
   - This Class Library utilizes the MediatR Nuget Package to introduce the Mediator Pattern.
   - PipeLine Behavior created to handle Validation using my own IValidatable interface.
   - Handlers are encapsulated internally so that consumers can only see the Mediator Request Objects
-- EmployeeTracker.Api
+- [EmployeeTracker.Api](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerapi)
   - Still in development
   
 ### EmployeeTracker.Domain
