@@ -23,7 +23,7 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
                 return DataExecutionResponse.Success(rowsAffected);
             }
 
-            return DataExecutionResponse.NotFound();
+            return DataExecutionResponse.NotFound("Department", $"Code: {request.Department.Code}");
 
         }
     }
