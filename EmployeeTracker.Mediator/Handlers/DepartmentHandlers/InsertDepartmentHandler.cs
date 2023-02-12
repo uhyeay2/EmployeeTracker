@@ -22,7 +22,7 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 
             validationFailures.RequiredStrings((nameof(Code), Code), (nameof(Name), Name));
 
-            return validationFailures.Any();
+            return validationFailures.Count == 0;
         }
     }
 

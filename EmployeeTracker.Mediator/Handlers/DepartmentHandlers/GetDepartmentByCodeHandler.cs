@@ -15,7 +15,7 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 
             validationFailures.RequiredStrings((nameof(Code), Code));
 
-            return validationFailures.Any();
+            return validationFailures.Count == 0;
         }
     }
 
