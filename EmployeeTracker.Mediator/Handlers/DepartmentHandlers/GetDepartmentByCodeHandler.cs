@@ -3,20 +3,9 @@ using EmployeeTracker.Data.DataTransferObjects;
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
-    public class GetDepartmentByCodeRequest : BaseValidatableRequest<BaseResponse<Department>>
+    public class GetDepartmentByCodeRequest : RequiredCodeRequest<BaseResponse<Department>>
     {
-        public GetDepartmentByCodeRequest(string code) => Code = code;
-
-        public string Code { get; internal set; } 
-
-        public override bool IsValid(out List<ValidationFailure> validationFailures)
-        {
-            validationFailures = new List<ValidationFailure>();
-
-            validationFailures.RequiredStrings((nameof(Code), Code));
-
-            return validationFailures.Count == 0;
-        }
+        public GetDepartmentByCodeRequest(string code) : base(code) { }
     }
 
     internal class GetDepartmentByCodeHandler : DataHandler<GetDepartmentByCodeRequest, BaseResponse<Department>>

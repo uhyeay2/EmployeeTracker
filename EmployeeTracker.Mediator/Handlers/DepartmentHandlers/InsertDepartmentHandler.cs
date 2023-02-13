@@ -2,25 +2,20 @@
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
-    public class InsertDepartmentRequest : BaseValidatableRequest<DataExecutionResponse>
+    public class InsertDepartmentRequest : RequiredCodeRequest<DataExecutionResponse>
     {
-        public InsertDepartmentRequest() { }
-
-        public InsertDepartmentRequest(string code, string name)
+        public InsertDepartmentRequest(string code, string name) : base(code)
         {
-            Code = code;
             Name = name;
         }
-
-        public string Code { get; set; } = null!;
 
         public string Name { get; set; } = null!;
 
         public override bool IsValid(out List<ValidationFailure> validationFailures)
         {
-            validationFailures = new();
+            base.IsValid(out validationFailures);
 
-            validationFailures.RequiredStrings((nameof(Code), Code), (nameof(Name), Name));
+            validationFailures.RequiredStrings((nameof(Name), Name));
 
             return validationFailures.Count == 0;
         }

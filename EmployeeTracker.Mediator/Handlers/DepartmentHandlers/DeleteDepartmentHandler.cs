@@ -2,11 +2,9 @@
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
-    public class DeleteDepartmentRequest : BaseRequest<DataExecutionResponse>
+    public class DeleteDepartmentRequest : RequiredCodeRequest<DataExecutionResponse>
     {
-        public DeleteDepartmentRequest(string code) => Code = code;
-
-        public string Code { get; set; }
+        public DeleteDepartmentRequest(string code) : base(code) { }
     }
 
     internal class DeleteDepartmentHandler : DataHandler<DeleteDepartmentRequest, DataExecutionResponse>
@@ -23,7 +21,6 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
             }
 
             return DataExecutionResponse.NotFound("Department", $"Code: {request.Code}");
-
         }
     }
 }

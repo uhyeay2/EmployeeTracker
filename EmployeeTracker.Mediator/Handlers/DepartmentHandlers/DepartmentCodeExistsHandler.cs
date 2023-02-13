@@ -2,11 +2,9 @@
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
-    public class DepartmentCodeExistsRequest : BaseRequest<BaseResponse<bool>>
+    public class DepartmentCodeExistsRequest : RequiredCodeRequest<BaseResponse<bool>>
     {
-        public DepartmentCodeExistsRequest(string code) => Code = code;
-
-        public string Code { get; set; }
+        public DepartmentCodeExistsRequest(string code) : base(code) { }
     }
 
     internal class DepartmentCodeExistsHandler : DataHandler<DepartmentCodeExistsRequest, BaseResponse<bool>>
