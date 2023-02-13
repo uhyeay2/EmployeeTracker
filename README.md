@@ -11,6 +11,10 @@ ASP.Net Core Application for tracking Employee Metrics such as Attendance/Perfor
   * [EmployeeTracker.Mediator](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackermediator)
   * [EmployeeTracker.Api](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerapi)
 * [Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#Testing)
+  * [Data Layer Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#data-layer-testing) 
+  * [Mediator Layer Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#mediator-layer-testing) 
+  * [Api Layer Testing](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#api-layer-testing) 
+  * [Additional Testing Info](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#additional-testing-info) 
 * [Technologies/Highlights](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#technologieshighlights)
 
 ## Overview
@@ -46,7 +50,9 @@ As Part of using Clean Architecture, the Domain Project resides at the center of
   - PipeLine Behavior created to handle Validation using my own IValidatable interface.
   - Handlers are encapsulated internally so that consumers can only see the Mediator Request Objects
 - [EmployeeTracker.Api](https://github.com/uhyeay2/EmployeeTracker/blob/main/README.md#employeetrackerapi)
-  - Still in development
+  - This .Net Web Api is built with .Net 6.0
+  - Utilizes Mediator Pattern w/ MediatR Framework
+  - Implemented Global Exception Handling w/ Middleware
   
 ### EmployeeTracker.Domain
 
