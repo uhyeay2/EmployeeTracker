@@ -1,14 +1,9 @@
 using EmployeeTracker.Api.Configurations;
-using EmployeeTracker.Mediator.DependencyInjection;
+using EmployeeTracker.Api.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-// Inject Mediator Services - EmployeeTracker.Mediator
-builder.Services.InjectMediatorServices(new DbConnectionConfig());
+builder.Services.InjectServices();
 
 var app = builder.Build();
 
@@ -24,5 +19,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.Run();
