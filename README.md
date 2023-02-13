@@ -76,15 +76,29 @@ The first time I used the MediatR package I used FluentValidations to add a Vali
 
 ### EmployeeTracker.Api
 
-This Layer is still in development.
+The Api Layer is built using .Net Core 6.0. The Api utilizes the Mediator Layer, so my controllers depend on the IMediator interface. The dependency on the Data layer is hidden behind the Mediator layer so that the Api project does not even reference the Data project. I utilized Microsoft.Extensions.DependencyInjection to create IServiceCollection Extensions in my Data project and Mediator project, so now my Api simply uses the Mediator injection which handled the Data injection as well.
+
+I also implemented an ExceptionHandling Middleware for this project. Currently it's primarily to catch ValidationFailureExceptions and return the appropriate response when needed, but I thought this was a really important middleware to add to the application.
 
 ## Testing
 
-Testing is an important part of the application. I am a believer in true unit testing, so I've introduced Moq to help test objects without testing their dependencies. 
+Testing is an important part of the application. I am a believer in true unit testing, so I've implemented Moq to help test objects without testing their dependencies. 
 
-I introduce abstractions to my Test Layers to make writing tests easier. My abstract Base Test classes eliminate repeated mocking and simplify the Setup process which allows me to write my tests faster - and with increased readability.
+I introduce abstractions to my Test Layers to make writing tests easier. My abstract Base classes for tests eliminate repeated mocking and simplify the Setup process which allows me to write my tests faster - and with increased readability.
 
-This is the first project I've done where I've used Dapper and Mocked my IDbConnection. I thought InMemoryDatabases were only possible with Entity - but I was wrong! In this project I use an InMemoryDatabase to test my Queries/Commands without ever touching my database.
+### Data Layer Testing
+
+This .Net 6 xUnit Testing Project is the first that I've done where I've used Dapper and Mocked my IDbConnection. I thought InMemoryDatabases were only possible with Entity - but I was wrong! In this project I use an InMemoryDatabase to test my Queries/Commands without ever touching my database. Additionally I utilize an abstract base class (DataRequestTest) which allows me to avoid repeating the same Mocking logic to set up my InMemoryDatabase.
+
+### Mediator Layer Testing
+
+The Mediator Layer is also tested using a .Net 6 xUnit Testing Project. In this layer my DataHandlerTest that is my abstract base test class started off as just handling the initialization of my Mock<IDataAccess> object. However, I noticed an opportunity to simplify my Mock Setups. I took what was originally a few lines of consistently repeated code for Mocking the same three methods for different requests, and simplified it into a much shorter and easier to read method call that just takes in the RequestType and the MockResponse to return. 
+
+### Api Layer Testing
+
+At this time I have decided not to implement testing for my Api layer. While I find testing to be a vital part of all applications, I acknowledge that there are times where creating tests would be doing so just for the sake of test coverage. Since my Api Layer has all endpoints calling handlers through the Mediator layer without any additional logic, I've determined that this project does not need the tests at this time. I may revist this again if additional logic is introduced to the Api layer.
+
+### Additional Testing Info
 
 I also utilized the Shouldly Nuget Package to enhance readability with my Assertions. I love the way that assertions flow more like a regular english sentance with the help of this package. After all, readability is an important aspect of our tests!
 
