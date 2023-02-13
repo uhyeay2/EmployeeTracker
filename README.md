@@ -21,7 +21,7 @@ ASP.Net Core Application for tracking Employee Metrics such as Attendance/Perfor
 
 This is a Domain Driven Design project created using Clean Architecture. Different layers are separated into their own projects with the Domain layer residing in the center. 
 
-The Data Layer of this application utilizes Dapper, with my own pattern for abstracting/wrapping the Dapper Dependency. This pattern does not use the commonly known Repository Pattern, but instead makes use of a 'DataAccess' class that can execute any DataRequest.
+The Data Layer of this application utilizes Dapper, with my own pattern for abstracting/wrapping the Dapper Dependency. This pattern does not use the commonly known Repository Pattern, but instead makes use of a '[DataAccess](https://github.com/uhyeay2/EmployeeTracker/blob/main/EmployeeTracker.Data/Implementation/DataAccess.cs)' class that can execute any DataRequest.
 
 This project also makes use of the MediatR Nuget Package, allowing for easier use of the Mediator Pattern. I found that this design pattern flows very well with the pattern I created for Dapper in this project.
 
