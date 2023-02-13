@@ -1,22 +1,21 @@
 ﻿using EmployeeTracker.Data.DataRequestObjects.DepartmentRequests;
-using EmployeeTracker.Domain.Models;
 
 namespace EmployeeTracker.Data.Tests.DataRequestTests.DepartmentTests
 {
     public class UpdateDepartmentTests : DataRequestTest
     {
-        private static readonly UpdateDepartment _request = new (new Department("Code", "NewName"));
+        private static readonly UpdateDepartment _request = new ("Code", "NewName");
 
         [Fact]
         public async Task UpdateDepartment_Given_NewName_Should_UpdateName()
         {
-            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = _request.Department.Code });
+            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = _request.Code });
 
             await DataAccess.ExecuteAsync(_request);
 
             var department = InMemoryDatabase.FetchSingle<DepartmentDTO>(Tables.Department);
 
-            Assert.True(_request.Department.Name == department.Name);
+            Assert.True(_request.Name == department.Name);
         }
 
         [Fact]
@@ -24,9 +23,9 @@ namespace EmployeeTracker.Data.Tests.DataRequestTests.DepartmentTests
         {
             var expectedName = "OriginalName";
 
-            var request = new UpdateDepartment(new Department() { Code = "Code", Name = null! });
+            var request = new UpdateDepartment("Code", null!);
 
-            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = request.Department.Code, Name = expectedName });
+            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = request.Code, Name = expectedName });
 
             await DataAccess.ExecuteAsync(request);
 
@@ -48,7 +47,7 @@ namespace EmployeeTracker.Data.Tests.DataRequestTests.DepartmentTests
         [Fact]
         public async Task UpdateDepartment_Given_DepartmentExistsWithCode_Should_ReturnOne()
         {
-            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = _request.Department.Code });
+            InMemoryDatabase.Insert(Tables.Department, new DepartmentDTO() { Code = _request.Code });
 
             var result = await DataAccess.ExecuteAsync(_request);
 

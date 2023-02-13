@@ -1,5 +1,4 @@
 ﻿using EmployeeTracker.Data.DataRequestObjects.DepartmentRequests;
-using EmployeeTracker.Domain.Models;
 using EmployeeTracker.Mediator.Handlers.DepartmentHandlers;
 
 namespace EmployeeTracker.Mediator.Tests.HandlerTests.DepartmentHandlerTests
@@ -10,7 +9,7 @@ namespace EmployeeTracker.Mediator.Tests.HandlerTests.DepartmentHandlerTests
 
         private readonly UpdateDepartmentHandler _handler;
 
-        private static readonly UpdateDepartmentRequest _request = new(new Department("Code", "Name"));
+        private static readonly UpdateDepartmentRequest _request = new("Code", "Name");
 
         [Fact]
         public async Task UpdateDepartment_Given_NoDepartmentUpdated_Should_ReturnNotFoundResponse()

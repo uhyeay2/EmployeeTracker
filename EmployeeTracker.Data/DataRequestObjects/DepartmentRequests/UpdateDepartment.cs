@@ -1,17 +1,18 @@
-﻿using EmployeeTracker.Domain.Models;
-
-namespace EmployeeTracker.Data.DataRequestObjects.DepartmentRequests
+﻿namespace EmployeeTracker.Data.DataRequestObjects.DepartmentRequests
 {
     public class UpdateDepartment : IDataRequest
     {
-        public UpdateDepartment(Department department)
+        public UpdateDepartment(string code, string name)
         {
-            Department = department;
+            Code = code;
+            Name = name;
         }
 
-        public Department Department { get; set; }
+        public string Code { get; set; }
 
-        public object? GenerateParameters() => new { Department.Code, Department.Name };
+        public string Name { get; set; }
+
+        public object? GenerateParameters() => new { Code, Name };
 
         public string GenerateSql() => Update.CoalesceTable(Tables.Department, "Code = @Code", "Name");
     }

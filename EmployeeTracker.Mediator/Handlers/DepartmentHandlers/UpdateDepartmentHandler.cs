@@ -2,12 +2,11 @@
 
 namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 {
-    public class UpdateDepartmentRequest : BaseRequest<DataExecutionResponse>
+    public class UpdateDepartmentRequest : RequiredCodeRequest<DataExecutionResponse>
     {
-        public UpdateDepartmentRequest(Department department) => Department = department;
+        public UpdateDepartmentRequest(string code, string name) : base(code) => Name = name;
 
-        public Department Department { get; set; }
-
+        public string Name { get; set; }
     }
 
     internal class UpdateDepartmentHandler : DataHandler<UpdateDepartmentRequest, DataExecutionResponse>
@@ -16,14 +15,14 @@ namespace EmployeeTracker.Mediator.Handlers.DepartmentHandlers
 
         public override async Task<DataExecutionResponse> Handle(UpdateDepartmentRequest request, CancellationToken cancellationToken)
         {
-            var rowsAffected = await DataAccess.ExecuteAsync(new UpdateDepartment(request.Department));
+            var rowsAffected = await DataAccess.ExecuteAsync(new UpdateDepartment(request.Name, request.Code));
 
             if (rowsAffected == 1)
             {
                 return DataExecutionResponse.Success(rowsAffected);
             }
 
-            return DataExecutionResponse.NotFound("Department", $"Code: {request.Department.Code}");
+            return DataExecutionResponse.NotFound("Department", $"Code: {request.Code}");
 
         }
     }
