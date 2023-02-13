@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[EmployeePosition]
+(
+	[Id] INT NOT NULL PRIMARY KEY CLUSTERED IDENTITY(1, 1),
+	[EmployeeId] INT NOT NULL REFERENCES Employee(Id),
+	[DepartmentId] INT NOT NULL REFERENCES Employee(Id),
+	[Title] VARCHAR(100) NOT NULL,
+	[StartDate] DATETIME NOT NULL,
+	[EndDate] DATETIME NULL
+)
