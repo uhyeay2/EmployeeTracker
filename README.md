@@ -127,11 +127,15 @@ I also utilized the Shouldly Nuget Package to enhance readability with my Assert
 - EmployeeTracker.Data
   - Dapper ORM for Data Transactions
   - Dapper Abstracted through Wrapper to handle Data Requests
+  - Factory Pattern for new instances of IDbConnection
   - Sql Generation for easy Sql Query/Command creations
 - EmployeeTracker.Mediator
   - MediatR Nuget Package
-  - Mediator Design Pattern
-  - Validation Behavior via MediatR Pipeline  
+  - Reusable BaseRequests for repeated RequestBodies
+  - Validation Behavior via MediatR Pipeline 
+- EmployeeTracker.Api
+  - Global Exception Handling w/ Pipeline Middleware
+  - Tiny, simple layer thanks to Mediator Pattern
 - Tests
   - xUnit Testing Projects
   - InMemoryDatabase w/ Dapper for Data Tests
