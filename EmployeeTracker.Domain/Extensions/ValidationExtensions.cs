@@ -10,7 +10,7 @@ namespace EmployeeTracker.Domain.Extensions
 
             foreach (var (name, value) in missingFields)
             {
-                validationFailures.Add(new(name, $"Validation Failed - {nameof(name)} cannot be null/empty/whitespace - Value: {value}"));
+                validationFailures.Add(new(name, $"Validation Failed - string cannot be null/empty/whitespace - Value: {value}"));
             }
 
             return validationFailures;
